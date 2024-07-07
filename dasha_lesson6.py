@@ -18,8 +18,6 @@ def task2():
     for x in a:
         if x % 2 == 0:
             sum += x
-        else:
-            continue
     print(sum)
 
 
@@ -57,8 +55,6 @@ def task5():
     for x in a:
         if x < sum and x % 2 == 0 and x != 0:
             print(x)
-        elif x == 0:
-            continue
 
 
 def task6():
@@ -70,31 +66,92 @@ def task6():
     for x in a:
         if x == n:
             sum += 1
-    print(f'Колличество повторений заданного числа ({n}) = {sum}')
+    print(f'Количество повторений заданного числа ({n}) = {sum}')
 
 
 def task7():
     # Дан список. Вывести yes, если все числа равны, иначе no
-    a = [2, 4, 0, 3, 8, 1]
+    a = [2, 2, 2, 2, 2, 2]
+    # 1 способ: max = 8, min = 1
+    # [2, 2, 2, 2, 2] max = 2 min = 2
+    # 2 способ
+    is_equal = True
     for x in a:
-        if x == a[0]:
-            print('yes')
-        else:
-            print('no')
+        if x != a[0]:
+            is_equal = False
+            break
+
+    if is_equal:
+        print('yes')
+    else:
+        print('no')
 
 
 # Нерешенное задание с предыдущего дз
 def task10():
-    # Найдите хотя одно натуральное число,
+    # Найдите хотя бы одно натуральное число,
     # которое делится на 11, а при делении на 2, 3, 4, ...,
     # 10 дает в остатке 1.
-    n = math.inf
-    for i in range(1, n):
-        for y in range(2, 11):
-            if i % 11 == 0 and (i % y == 1):
-                print(i)
-                n += 1
-            else:
-                n += 1
-    # не поняла как решить задачу
-    pass
+    n = 1
+    while True:
+        is_success = True
+
+        if n % 11 != 0:
+            is_success = False
+        else:
+            for k in range(2, 11):
+                if n % k != 1:
+                    is_success = False
+                    break
+
+        if is_success:
+            print(n)
+            break
+
+        n += 1
+
+
+def task11():
+    # Найдите 3 натуральных числа, больших 100000,
+    # которое делится на 11, а при делении на 2, 3, 4, ...,
+    # 10 дает в остатке 1.
+    n = 100001
+    FIND_COUNT = 3
+    counter = 0
+    while True:
+        is_success = True
+
+        if n % 11 != 0:
+            is_success = False
+        else:
+            for k in range(2, 11):
+                if n % k != 1:
+                    is_success = False
+                    break
+
+        if is_success:
+            print(n)
+            counter += 1
+            if counter == FIND_COUNT:
+                break
+
+        n += 1
+
+
+def gen_exam_table():
+    TASK_COUNT = 25
+    min_year = 2002
+    max_year = 2023
+
+    print(" ", end=" ")
+    for task_number in range(TASK_COUNT):
+        print(task_number + 1, end=" ")
+    print()
+
+    for year in range(min_year, max_year + 1):
+        zero_row = "0 " * TASK_COUNT
+        for postfix in ["-1", "-2", "-3", "-F"]:
+            print(str(year) + postfix, zero_row)
+
+
+gen_exam_table()
