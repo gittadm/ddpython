@@ -15,4 +15,11 @@ def task84():
         amount_of_candy = exchange_rates / one_kilo_candy
         print(f'{amount_of_dollars}$ - {exchange_rates} RUB. - {amount_of_candy}kg')
 
-task84()
+
+
+# Даны a и n. Вычислите p=(a+1)2(a+2)2⋅…⋅(a+n)2
+
+def task95():
+    a_variable = int(input('Write a number: '))
+    n_variable = int(input('Write n number: '))
+    counter_of_n_variable = 0
