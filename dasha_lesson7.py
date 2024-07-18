@@ -5,29 +5,59 @@ def task1():
     # Даны две переменные, в которых хранятся числа. Поменять местами значения в них.
     first_number = int(input('Введите первое число '))
     second_number = int(input('Введите второе число '))
+
+    temp = first_number
+    first_number = second_number
+    second_number = temp
+
     print(f'Меняю местами {first_number} и {second_number} => {second_number} {first_number}')
 
 
 def task2():
-    # Дан список чисел. Определить, содержит ли список данное число ровно 3 раза.
+    # Дан список чисел. Определить, содержит
+    # ли список данное число ровно 3 раза.
 
-    list = [1, 1, 2, 3, 4, 4, 4, 5]
-    counter = 0
-    repeatable_number = int
-    result = bool
+    # list = [1, 1, 2, 3, 4, 4, 4, 5]
+    # x = 4
+    #
+    # counter = 0
+    # for number in list:
+    #     if number == x:
+    #         counter += 1
+    #
+    # if counter == 3:
+    #     print('Yes')
+    # else:
+    #     print('No')
 
-    for x in list:
-        counter = list.count(x)
-        repeatable_number = x
-        if counter == 3:
-            result = True
-            break
-        else:
-            result = False
-    if result:
-        print(f'Повторяющееся три раза число в списке {list} = {repeatable_number}')
-    else:
-        print(f'В списке {list} нет повторяющихся чисел')
+    a = [1, 1, 2, 1, 3, 4, 4, 4, 5]
+    b = []
+
+    for x in a:
+        if x not in b and a.count(x) == 3:
+            print(f'{x}')
+            b.append(x)
+
+    if len(b) == 0:
+        print(f'В списке нет повторяющихся чисел')
+
+    a = [1, 2, 3, [4, 5]]
+    b = a.copy()
+
+    a[3][0] = 999
+
+    print(a)
+    print(b)
+
+    a = list('hello')
+    a = list(range(1, 10))
+    b = [i * 2 for i in a if i % 2 == 1]
+
+    print(a)
+    print(b)
+
+
+task2()
 
 
 def task3():
