@@ -42,16 +42,22 @@ def task3():
 def task4():
     # Даны два списка одинаковой длины. Получить новый список как их сумму -
     # числа на соответствующих местах суммируются.
-    a = [1, 2, 3, 4]
-    b = [5, 6, 7, 8]
-    counter = [i for i in range(len(a))]
+    a = [1, 2, 3, 4, 8]
+    b = [5, 6, 7, 8, 9]
+
+    # [0, 1, 2, 3, 4, 5, 6]
+    # c = [a[0]+b[0], a[1]+b[1], a[2]+b[2]]
+
     c = []
 
-    for i in counter:
-        x = a[i]
-        y = b[i]
-        c.append(x + y)
+    # 1 способ
+    for i in range(len(a)):
+        c.append(a[i] + b[i])
     print(c)
+
+    # 2 способ
+    for i, x in enumerate(a):
+        c.append(a[i]+b[i])
 
 
 def task5():
