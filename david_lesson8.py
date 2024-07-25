@@ -1,11 +1,15 @@
 # Дан список. Удалить последний и первый элементы.
 
-def del_elements():
-    a = ['bbq', 'explosion', 'radiation', 'X-RAY sickness', 'happy']
+def del_elements(a):
     a.remove(a[0])
     a.pop()
     print(a)
+    return 2
 
+
+del_elements(['bbq', 'explosion', 'radiation', 'X-RAY sickness', 'happy'])
+del_elements(['X-RAY sickness', 'happy'])
+x = del_elements(['bbq'])
 
 # Дан список. Удалить все нули.
 def del_emptiness():
