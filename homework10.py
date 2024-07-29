@@ -49,50 +49,83 @@ def task5():
 
 # Дан словарь man = {'name': 'Ivan', 'languages': ['php', 'java', 'python']}.
 # Вывести на экран кол-во языков программирования, которыми владеет Ivan.
-def task6():
-    man = {
-        'name': 'Ivan',
-        'languages': ['php', 'java', 'python']
-    }
+def task6(man):
     number_of_languages = man['languages']
     return len(number_of_languages)
 
+task6({
+        'name': 'Ivan',
+        'languages': ['php', 'java', 'python']
+    })
+task6({
+        'name': 'Petr',
+        'languages': ['php', 'java', 'python']
+    })
+
+def len2():
+    a = [1, 2]
+    return 2
+
+
+a = [1, 4, 5]
+b = [3, 5]
+
+print(len(a))
+print(len(b))
 
 # result = task6()
 # print(result)
 
 # Даны два словаря: dict1= {'a': 300, 'b': 400} и dict2 = {'c': 500, 'd': 600}. Объедините их в один новый словарь.
-def task7():
-    dict1 = {
-        'a': 300,
-        'b': 400
-    }
-
-    dict2 = {
-        'c': 500,
-        'd': 600
-    }
+def task7(dict1, dict2):
     dict3 = {}
-
     dict3.update(dict1)
     dict3.update(dict2)
     return dict3
 
 
-# result = task7()
+d1 = {
+    'a': 300,
+    'b': 400
+}
+
+d2 = {
+    'c': 500,
+    'd': 600
+}
+
+result = task7(d1, d2)
+result = task7(d1, {'c': 500})
+result = task7(d1, d2)
+
+
 # print(result)
 
 
-# Дан словарь с числовыми значениями. Например, d = {'a': 12, 'b': 34, 'c': 11}.
+# Дан словарь с числовыми значениями.
+# Например, d = {'a': 12, 'b': 34, 'c': 11}.
 # Необходимо найти сумму всех этих значений.
-def task8():
-    d = {
-        'a': 12,
-        'b': 34,
-        'c': 11
-    }
+def task8(d):
+    sum = 0
+    for number in d.values():
+         sum = sum + number
+         # sum += number
+    return sum
+
+
+print(task8({'a': 12, 'b': 34, 'c': 11}))
+print(task8({'a': 12, 'b': 34}))
+print(task8({'a': 12}))
+print(task8({}))
+
+def task8_2(d):
     value_of_integer = d['a'] + d['b'] + d['c']
     return value_of_integer
+
+
+x = 2 * task8({'a': 12, 'b': 34, 'c': 11}) + 100 * task8({'a': 12})
+
+print(task8({'a': 12}))
 
 
 # result = task8()
@@ -105,16 +138,16 @@ def task9():  # РЕШЕНИЕ ПОЧТИ ПОЛНОСТЬЮ ПОСМОТРЕЛ 
     # ШЕЛ В ПРАВИЛЬНОМ НАПРАВЛЕНИИ, НО ТОТАЛ ЗАПИХАЛ НЕ ТУДА, СДЕЛАЛ ЭНЕМЕРЕЙТ ВМЕСТО АЙТЕМС,
     # А ТАК ПОЧТИ-ПОЧТИ, НО НЕ ДО КОНЦА
     num = {
-        '1': 1,
-        '2': 2,
-        '3': 3,
-        '4': 4,
-        '5': 5,
-        '6': 6,
-        '7': 7,
-        '8': 8,
-        '9': 9,
-        '10': 10
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10
     }
     total = []
     for index, number in num.items():

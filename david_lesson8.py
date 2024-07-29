@@ -22,8 +22,7 @@ def del_emptiness():
 
 
 # Дан список. Вставить после каждого четного числа ноль.
-def insert_0():
-    unit = [3, 6, 98, 7, 1, 5, 4, 7, 98, 5, 4, 2, 3, 5, 4, 55, 85, 8, 4, 54, 8, 4, 5, 54, 6, 8, 6, 9, 6]
+def insert_0(unit):
     numbers = []
     for number in unit:
         if number % 2 == 0:
@@ -31,8 +30,11 @@ def insert_0():
             numbers.append(0)
         else:
             numbers.append(number)
-    print(numbers)
+    return numbers
 
+
+numbers2 = insert_0([3, 6, 98, 7, 1, 5, 4, 7, 98, 5, 4, 2, 3, 5, 4, 55, 85, 8, 4, 54, 8, 4, 5, 54, 6, 8, 6, 9, 6])
+print(numbers2)
 
 # Даны два списка. Показать те числа, которые есть в обоих списках.
 

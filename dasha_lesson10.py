@@ -55,6 +55,9 @@ def task3():
     print(man, person)
 
 
+x = [1, 4]
+print(len(x))
+
 def task4():
     # Дан словарь man = {'name': 'Ivan', 'languages': ['php', 'java', 'python']}.
     # Вывести на экран кол-во языков программирования, которыми владеет Ivan.
