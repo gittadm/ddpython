@@ -2,13 +2,14 @@ def task1(a):
     # Task 1
     # Дан кортеж чисел. Выведите кол-во чисел в кортеже, первый элемент, последний элемент, наибольший элемент,
     # наименьший элемент, сумму всех чисел.
-    results = {'Кол-во чисел': len(a),
-               '1-й элемент': a[0],
-               'Последний элемент': a[-1],
-               'Наибольший элемент': max(a),
-               'Наименьший элемент': min(a),
-               'Сумма чисел': sum(a)
-               }
+    results = {
+        'Кол-во чисел': len(a),
+        '1-й элемент': a[0],
+        'Последний элемент': a[-1],
+        'Наибольший элемент': max(a),
+        'Наименьший элемент': min(a),
+        'Сумма чисел': sum(a),
+    }
     return results
 
 
@@ -20,8 +21,8 @@ def task2(a, k):
     # Дан кортеж чисел a. Определите, содержит ли кортеж данное число k.
     if k in a:
         return 'Yes'
-    else:
-        return 'No'
+
+    return 'No'
 
 
 result = task2((2, 4, 5, 8), 8)
@@ -67,7 +68,7 @@ print(y)
 def task6(a, b):
     # Даны два кортежа чисел. Определить, состоят ли они из одних и тех же чисел
     # (порядок чисел в кортеже и кол-во повторов чисел не важны). Например, (1, 4, 1, 6) и (1, 6, 6, 1) - да
-    is_exist = bool
+    is_exist = False
     for x in a:
         if x in b:
             is_exist = True
@@ -182,7 +183,7 @@ def task13(surnames):
         else:
             surname_count[surname] = 1
     for surname, count in surname_count.items():
-            return count
+        return count
 
 
 result = task13(['ivanov', 'petrov', 'ivanov', 'petrov', 'ivanov', 'petrov'])
