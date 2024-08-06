@@ -20,7 +20,6 @@ def task1():
         'кол-во страниц': '170',
         'издательство': 'Бином',
     }
-    pass
 
 
 def task2():
@@ -55,8 +54,9 @@ def task3():
     print(man, person)
 
 
-x = [1, 4]
-print(len(x))
+# x = [1, 4]
+# print(len(x))
+
 
 def task4():
     # Дан словарь man = {'name': 'Ivan', 'languages': ['php', 'java', 'python']}.
@@ -88,9 +88,21 @@ def task6():
 def task7():
     # Создайте словарь, в котором ключами будут числа от 1 до 10, а значениями эти же числа, возведенные в квадрат,
     # то есть {1: 1, 2: 4, 3: 9, ..., 10: 100}
-    pass
+    counter = {x for x in range(1, 11)}
+    a = {}
+    for x in counter:
+        a.update({x: x ** 2})
+    print(a)
 
 
-def task8():
+def task8(a, b):
     # Даны два словаря. Вывести на экран те ключи, которые есть в обоих словарях.
-    pass
+    result = []
+    for x in a.keys():
+        if x in b.keys():
+            result.append(x)
+    return result
+
+
+result = task8({'c': 16, 'a': 8, 'b': 15}, {'a': 9, 'b': 4})
+print(result)
