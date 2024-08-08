@@ -49,19 +49,33 @@ def task5(min_number, max_number):
 random_even_number = task5(2, 20)
 print(random_even_number)
 
+def check_year(year):
+    if year > 2:
+        return true
+    return false
+
+def days_in_month(month):
+    if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 12:
+        return 31
+    if month == 4:
+        return 30
+    return 28
 
 def task6():
-    # Показать случайную дату в виде dd.mm.yyyy Например, 01.02.1994
+    # Показать случайную дату в виде dd.mm.yyyy
+    # Например, 01.02.1994
     month = random.randint(1, 12)
     year = random.randint(1990, 2024)
-    if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 12:
+
+    if days_in_month(month) == 31:
         day = random.randint(1, 31)
-    elif year % 4 != 0:
+    elif check_year(year):
         day = random.randint(1, 28)
     elif year % 4 == 0:
         day = random.randint(1, 29)
     else:
         day = random.randint(1, 30)
+
     print(f'{day}.{month}.{year}')
 
 
@@ -100,18 +114,30 @@ def task8():
     pass
 
 
-def task9(n):
-    # Сгенерировать список из 10 чисел: 7 нулей и 3 единицы. Единицы расположены на случайных местах в списке.
-    new_random_list = []
+def task9(n=10):
+    # Сгенерировать список из 10 чисел:
+    # 7 нулей и 3 единицы.
+    # Единицы расположены на случайных местах в списке.
+
+    # 2 способ
+
+    # a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    #
+    # index = random.randint(0, 9)
+    # a[index] = 1
+
+    #
+    random_list = []
     counter = 0
     for x in range(n - 1):
-        while new_random_list.count(1) < 3:
-            new_random_list.append(random.randint(0, 1))
+        while random_list.count(1) < 3:
+            random_list.append(random.randint(0, 1))
         counter += 1
-        new_random_list.append(0)
-        if len(new_random_list) == n:
+        random_list.append(0)
+        if len(random_list) >= n:
             break
-    return new_random_list
+    # 0 1 0 0 0 0 0 0 0 1 1
+    return random_list
 
 
 new_list = task9(10)
