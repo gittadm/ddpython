@@ -182,8 +182,8 @@ def task13(surnames):
             surname_count[surname] += 1
         else:
             surname_count[surname] = 1
-    for surname, count in surname_count.items():
-        return count
+    total_same_surnames = sum(x for x in surname_count.values() if x > 1)
+    return total_same_surnames
 
 
 result = task13(['ivanov', 'petrov', 'ivanov', 'petrov', 'ivanov', 'petrov'])
