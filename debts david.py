@@ -19,6 +19,7 @@ result = quadratic_eq(MAX=10)
 for equation in result:
     print(equation)
 
+# Сгенерировать список из 10 чисел: 7 нулей и 3 единицы. Единицы расположены на случайных местах в списке.
 def selection(max=10):
     container = []
     while len(container) < max:
