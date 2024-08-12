@@ -110,24 +110,43 @@ random_year = task7(10)
 print(random_year)
 
 
-def task8(i):
+def task8(n):
     # Сгенерировать 10 квадратных уравнений с целыми коэффициентами, каждое уравнение должно иметь 2 корня.
     # То есть сгенерировать целые числа a, b, c - коэффициенты квадратного уравнения так,
     # чтобы дискриминант был больше 0.
-    for x in range(i):
+    equations = []
+    for x in range(n):
         a = random.randint(-99, 99)
         b = random.randint(-99, 99)
         c = random.randint(-99, 99)
         d = b ** 2 - 4 * a * c
-        equation = f"{a}x^2 + {b}x + {c} = 0"
         if d > 0:
-            return equation
-    return None
+            equations.append(f"{a}x^2 + {b}x + {c} = 0")
+    return equations
 
 
 print('task8')
 random_equals = task8(10)
 print(random_equals)
+
+
+def is_common_dividers(a, b, c):
+    k = min(a, b, c)
+    for i in range(2, k + 1):
+        if a % i == 0 and b % i == 0 and c % i == 0:
+            return True
+    return False
+
+def find_dividers(n):
+    dividers = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            dividers.append(i)
+    return dividers
+
+
+print('-' * 10)
+print(find_dividers(20))
 
 
 def task9(n=10):
