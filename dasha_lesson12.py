@@ -49,10 +49,12 @@ def task5(min_number, max_number):
 random_even_number = task5(2, 20)
 print(random_even_number)
 
+
 def check_year(year):
     if year > 2:
-        return true
-    return false
+        return True
+    return False
+
 
 def days_in_month(month):
     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 12:
@@ -60,6 +62,7 @@ def days_in_month(month):
     if month == 4:
         return 30
     return 28
+
 
 def task6():
     # Показать случайную дату в виде dd.mm.yyyy
@@ -107,11 +110,43 @@ random_year = task7(10)
 print(random_year)
 
 
-def task8():
+def task8(n):
     # Сгенерировать 10 квадратных уравнений с целыми коэффициентами, каждое уравнение должно иметь 2 корня.
     # То есть сгенерировать целые числа a, b, c - коэффициенты квадратного уравнения так,
     # чтобы дискриминант был больше 0.
-    pass
+    equations = []
+    for x in range(n):
+        a = random.randint(-99, 99)
+        b = random.randint(-99, 99)
+        c = random.randint(-99, 99)
+        d = b ** 2 - 4 * a * c
+        if d > 0:
+            equations.append(f"{a}x^2 + {b}x + {c} = 0")
+    return equations
+
+
+print('task8')
+random_equals = task8(10)
+print(random_equals)
+
+
+def is_common_dividers(a, b, c):
+    k = min(a, b, c)
+    for i in range(2, k + 1):
+        if a % i == 0 and b % i == 0 and c % i == 0:
+            return True
+    return False
+
+def find_dividers(n):
+    dividers = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            dividers.append(i)
+    return dividers
+
+
+print('-' * 10)
+print(find_dividers(20))
 
 
 def task9(n=10):
@@ -213,7 +248,6 @@ def task13(n):
     while sum_of_numbers < n:
         user_number = int(input("Введите число от 1 до 3: "))
         sum_of_numbers += user_number
-        last_move = 'пользователь'
         computer_number = random.randint(1, 3)
         sum_of_numbers += computer_number
         last_move = 'компьютер'
