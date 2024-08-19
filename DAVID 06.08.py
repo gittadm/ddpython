@@ -224,4 +224,113 @@ length = 1
 result = find_eight(unit1, length)
 print(result)
 
+# Сгенерировать случайный адрес сайта.
+# Например, www.site.ru - начинается с http, htpps или www. Домен - один из вариантов: ru, by, net, com.
 
+def generate_prefix(prefix):
+    return random.choice(prefix)
+
+
+def generate_postfix(postfix):
+    return random.choice(postfix)
+
+
+def generate_address(n=12):
+    address = []
+    while len(address) < n:
+        charity = chr(random.randint(97, 122))
+        address.append(charity)
+    return ''.join(address)
+
+
+def mutate_to_website(prefix, postfix):
+    connection = generate_prefix(prefix)
+    address = generate_address(n=12)
+    connection2 = generate_postfix(postfix)
+    website = f'{connection}://{address}.{connection2}'
+    return website
+
+
+prefix = ['http', 'https']
+postfix = ['ru', 'by', 'net', 'com']
+n = 12
+result = mutate_to_website(prefix, postfix)
+print(result)
+
+# Написать генерацию строк длины 12, первые 5 символов которой - четные цифры, следующие 5 символов - буквы 'a' - 'z',
+# следующие 2 символа - "AB", если среди первых пяти символов строки есть цифра 8, "XY"  - если нет.
+
+def generate_number(n=5):
+    number_container = []
+    while len(number_container) < n:
+        numbers = random.randint(0, 16)
+        if numbers % 2 == 0:
+            number_container.append(str(numbers))
+    return ''.join(number_container)
+
+
+def generate_charity(n=5):
+    charity_container = []
+    while len(charity_container) < n:
+        charity = chr(random.randint(97, 122))
+        charity_container.append(charity)
+    return ''.join(charity_container)
+
+
+def mutate_to_smth():
+    connection = generate_number(n=5)
+    connection_1 = generate_charity(n=5)
+    smth = connection + connection_1
+    for collection in connection:
+        if '8' not in collection:
+            return f'{smth}AB'
+        else:
+            return f'{smth}XY'
+
+
+result = mutate_to_smth()
+print(result)
+
+
+
+# Написать генерацию строк длины 10, причем первые 4 символа - цифры, следующие два символа -
+# различные буквы, следующие 4 символа - нули или единицы, причем одна единица точно присутствует.
+
+def generate_numbers(n):
+    number_container = []
+    while len(number_container) < n:
+        number = random.randint(0, 5)
+        number_container.append(str(number))
+    return ''.join(number_container)
+
+
+def generate_letters(n_1):
+    letters = (
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz')
+    letter_container = []
+    while len(letter_container) < n_1:
+        a_b = random.choice(letters)
+        letter_container.append(a_b)
+    return ''.join(letter_container)
+
+
+def generate_zeros_and_ones(n_2):
+    zeros_and_ones_container = []
+    while len(zeros_and_ones_container) < n_2:
+        zeros_and_ones = random.randint(0, 1)
+        zeros_and_ones_container.append(str(zeros_and_ones))
+    return ''.join(zeros_and_ones_container)
+
+def unite():
+    connection_0 = generate_numbers(n)
+    connection_1 = generate_letters(n_1)
+    connection_2 = generate_zeros_and_ones(n_2)
+    united_elements = f'{connection_0}{connection_1}{connection_2}'
+    return united_elements
+
+
+n = 4
+n_1 = 2
+n_2 = 4
+result = unite()
+print(result)
