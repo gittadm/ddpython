@@ -150,12 +150,10 @@ def choose_code_zone(code_zone):
     return code_zone
 
 
-def generate_number():
+def generate_number(n=7):
     number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     phone_number = []
-    length = 0
-    while length < 7:
-        length += 1
+    while len(phone_number) < n:
         random_number = random.choice(number_list)
         phone_number.append(random_number)
     return phone_number
@@ -170,10 +168,9 @@ def mutate_to_number(prefix, code_zone):
     return number
 
 
-code_zone = ['(705)', '(775)', '(721)']
-prefix = '+7'
-result = mutate_to_number(prefix, code_zone)
+result = mutate_to_number('+7', ['(705)', '(775)', '(721)'])
 print(result)
+
 
 
 
