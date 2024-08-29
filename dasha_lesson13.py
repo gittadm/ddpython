@@ -143,8 +143,28 @@ print(result_string_2)
 # Задание 9. Написать генерацию строк длины 10, причем первые 4 символа - цифры,
 # следующие два символа - различные буквы, следующие 4 символа - нули или единицы,
 # причем одна единица точно присутствует.
-def task9():
-    pass
+def task9(string_length=10):
+    numbers = [str(x) for x in range(10)]
+    letters = [chr(x) for x in range(97, 123)]
+    zero_one = ['0', '1']
+
+    a = random.choices(numbers, k=string_length - 6)
+    b = random.choices(letters, k=string_length - 8)
+    c = random.choices(zero_one, k=string_length - 6)
+
+    random_string = [a, b, c]
+
+    if 1 not in random_string[2]:
+        random_string.pop(0)
+        random_string[random.randint(0, len(random_string) - 1)] = 1
+
+    result_string = ''.join(a) + ''.join(b) + ''.join(c)
+    return result_string
+
+
+result_string_3 = task9()
+print('task9')
+print(result_string_3)
 
 
 # Задание 10. Усложнить задачу про генерацию квадратных уравнений: нельзя сократить, корни целые, нет одинаковых.
